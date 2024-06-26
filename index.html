@@ -97,24 +97,26 @@
         }
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between; /* Tampilan dua kolom */
+            justify-content: center; /* Pusatkan item di tengah secara horizontal */
+            align-items: center; /* Pusatkan item di tengah secara vertikal */
             padding: 10px;
-            position: relative; /* Tambahkan */
-            z-index: 1; /* Tambahkan */
+            height: 100vh; /* Ubah tinggi sesuai kebutuhan */
         }
         .gallery-item {
-            width: calc(50% - 20px); /* Lebar setengah dari container dengan margin 10px */
-            margin-bottom: 20px; /* Jarak antar gambar */
-            overflow: hidden;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             transition: transform 0.2s;
         }
         .gallery-item img {
-            width: 100%;
+            width: auto;
             height: auto;
+            max-width: 100%;
+            max-height: 100%;
             display: block;
+            margin: 0 auto; /* Pusatkan gambar di dalam container */
         }
         .gallery-item:hover {
             transform: scale(1.05);
@@ -197,7 +199,7 @@
         <!-- Konten utama di sini -->
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOQcFb7rN7waIN8GaZqxZAQ1wBB4kckwGyE8eQDHqToj_fo4Oy4CtKEEbmhkfwYANi1BgC034Rt4gINZXY9nx_KZhvenqx4n38ENw7evdzQhHNhSzUJ2DGAtaSPLWBAHrGKUpaCsP6Y93ss2TJZF44i6jMZYkW4nvR31A_mT1mdHNQflY7xYwu-jByH1qr/s16000/Alyssa_20240622_112939_0000.png" alt="Gambar Galeri 1">
+                <img src="abc.png" alt="Gambar Galeri 1">
             </div>
         </div>
     </div>
