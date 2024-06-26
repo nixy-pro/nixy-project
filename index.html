@@ -37,6 +37,14 @@
             height: 50px;
             max-width: 100%;
         }
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+        .brand h1 {
+            font-weight: bold;
+            margin-left: 10px;
+        }
         .menu-toggle {
             font-size: 18px;
             cursor: pointer;
@@ -121,6 +129,9 @@
             header img {
                 height: 40px;
             }
+            .brand h1 {
+                font-size: 1.5rem;
+            }
             .sidebar {
                 width: 60%;
                 max-width: 250px;
@@ -142,8 +153,10 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo">
-        <b>Toko Bunga</b>
+        <div class="brand">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOQcFb7rN7waIN8GaZqxZAQ1wBB4kckwGyE8eQDHqToj_fo4Oy4CtKEEbmhkfwYANi1BgC034Rt4gINZXY9nx_KZhvenqx4n38ENw7evdzQhHNhSzUJ2DGAtaSPLWBAHrGKUpaCsP6Y93ss2TJZF44i6jMZYkW4nvR31A_mT1mdHNQflY7xYwu-jByH1qr/s16000/Alyssa_20240622_112939_0000.png" alt="Logo">
+            <h1>Toko Bunga</h1>
+        </div>
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
     </header>
     <div class="sidebar" id="sidebar">
