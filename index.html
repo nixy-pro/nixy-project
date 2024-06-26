@@ -37,6 +37,7 @@
             background-image: url('https://example.com/welcome-banner.jpg'); /* URL gambar banner selamat datang */
             background-size: cover;
             background-position: center;
+            height: 150px; /* Tinggi header */
         }
         @keyframes slideDown {
             from {
@@ -94,13 +95,14 @@
             margin-left: 220px; /* Adjusted for sidebar width */
             position: relative; /* Tambahkan */
             z-index: 1; /* Tambahkan */
+            margin-top: 20px; /* Jarak dari header */
         }
         .gallery {
             display: flex;
             justify-content: center; /* Pusatkan item di tengah secara horizontal */
             align-items: center; /* Pusatkan item di tengah secara vertikal */
             padding: 10px;
-            height: 100vh; /* Ubah tinggi sesuai kebutuhan */
+            height: calc(100vh - 170px); /* Tinggi galeri mengisi sisa tinggi halaman */
         }
         .gallery-item {
             max-width: 100%;
@@ -145,6 +147,7 @@
             }
             header {
                 padding: 10px 5%;
+                height: 120px; /* Tinggi header untuk layar kecil */
             }
             header img {
                 height: 40px;
@@ -165,9 +168,13 @@
             }
             .main-content {
                 margin-left: 0;
+                margin-top: 10px; /* Jarak dari header untuk layar kecil */
             }
             .main-content.active {
                 margin-left: 0;
+            }
+            .gallery {
+                height: calc(100vh - 130px); /* Tinggi galeri untuk layar kecil */
             }
             .gallery-item {
                 width: calc(100% - 20px); /* Satu kolom pada layar kecil */
