@@ -1,288 +1,103 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Bunga</title>
-    <meta name="description" content="Toko bunga yang menawarkan koleksi bunga terbaik dengan deskripsi singkat.">
-    <meta name="keywords" content="toko bunga, koleksi bunga, galeri bunga, bunga terbaik, deskripsi bunga">
-    <meta property="og:title" content="Toko Bunga">
-    <meta property="og:description" content="Toko bunga yang menawarkan koleksi bunga terbaik dengan deskripsi singkat.">
-    <meta property="og:image" content="https://example.com/thumbnail.jpg"> <!-- URL thumbnail gambar -->
-    <meta property="og:url" content="https://example.com">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-tFj5/vGCA7kWDZFfpusd+jSc5F1F4twE4lGn+5c7miYU1BN1ZzQV3H2U7JYoOM60ZJ9LZPBlIbnv2dI7prpE4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            overflow: hidden; /* Prevents scrolling caused by animation */
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 2%;
-            background-color: #ff6f61;
-            color: #fff;
-            border-radius: 15px;
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            width: calc(100% - 40px); /* Adjusting for the padding */
-            max-width: 1200px;
-            animation: slideDown 1s ease-out;
-        }
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        header img {
-            height: 50px;
-            max-width: 100%;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
-        }
-        .brand h1 {
-            font-weight: bold;
-            margin: 0;
-            font-size: 1.5rem;
-            margin-left: 10px; /* Jarak antara logo dan teks */
-        }
-        .menu-toggle {
-            font-size: 24px; /* Ukuran ikon */
-            cursor: pointer;
-            background-color: transparent;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            margin: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .menu-toggle .fas {
-            font-size: 1.5rem; /* Ukuran ikon hamburger */
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -200px;
-            height: 100%;
-            width: 200px;
-            background-color: rgba(68, 68, 68, 0.8);
-            padding-top: 60px; /* Adjusted for header */
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            overflow-x: hidden;
-            transition: left 0.3s ease;
-        }
-        .sidebar.active {
-            left: 0;
-        }
-        .sidebar .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .sidebar .logo i {
-            font-size: 32px; /* Ukuran ikon */
-            color: #fff;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 16px;
-            text-decoration: none;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            margin: 8px;
-        }
-        .sidebar a:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-        .main-content {
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-            margin-top: 80px; /* Adding margin to prevent overlap with fixed header */
-        }
-        .main-content.active {
-            margin-left: 200px; /* Adjusted for sidebar width */
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px;
-        }
-        .gallery-item {
-            margin: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            transition: transform 0.2s;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .gallery-item p {
-            margin: 0;
-            padding: 10px;
-            background-color: #eee;
-        }
-        @media (max-width: 600px) {
-            .menu-toggle {
-                display: flex; /* Memastikan tombol hamburger muncul */
-            }
-            header {
-                padding: 10px 5%;
-                width: calc(100% - 20px); /* Adjusting for the padding */
-            }
-            header img {
-                height: 40px;
-            }
-            .brand h1 {
-                font-size: 1.2rem;
-            }
-            .sidebar {
-                width: 60%;
-                max-width: 250px;
-                left: -60%; /* Adjusted for sidebar width */
-            }
-            .sidebar a {
-                padding: 12px;
-            }
-            .sidebar.active {
-                left: 0;
-            }
-            .main-content {
-                margin-left: 0;
-            }
-            .main-content.active {
-                margin-left: 0;
-            }
-        }
-        .background-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Ensure it stays behind content */
-        }
-        .flower {
-            position: absolute;
-            width: 50px; /* Size of the flower */
-            height: 50px;
-            background-image: url('https://example.com/flower.png'); /* URL gambar bunga */
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: float 10s linear infinite;
-        }
-        @keyframes float {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Album Galeri Foto</title>
+<style>
+  /* Style untuk galeri foto */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  .gallery li {
+    margin: 10px;
+    cursor: pointer;
+  }
+  .gallery li img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+  }
+  .gallery li img:hover {
+    transform: scale(1.1);
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    max-height: 80%;
+  }
+  .modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="brand">
-            <img src="logo.png" alt="Logo" height="50">
-            <h1>Toko Bunga</h1>
-        </div>
-        <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
-    </header>
-    <div class="sidebar" id="sidebar">
-        <div class="logo">
-            <i class="fas fa-leaf"></i> <!-- Ganti dengan ikon Font Awesome yang diinginkan -->
-        </div>
-        <a href="#home" onclick="hideSidebar()">Home</a>
-        <a href="#gallery" onclick="hideSidebar()">Gallery</a>
-        <a href="#about" onclick="hideSidebar()">About</a>
-        <a href="#contact" onclick="hideSidebar()">Contact</a>
+
+<ul class="gallery">
+  <!-- Thumbnail -->
+  <li onclick="openModal('abc.png')">
+    <img src="abc.png" alt="Thumbnail">
+  </li>
+  <!-- Modal dengan galeri foto yang lebih besar -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="Enlarged Photo">
+      <div class="gallery-big">
+        <!-- Galeri dengan beberapa gambar -->
+        <img src="abc.png" onclick="currentSlide(1)" alt="Photo 1">
+        <img src="abc.png" onclick="currentSlide(2)" alt="Photo 2">
+        <img src="abc.png" onclick="currentSlide(3)" alt="Photo 3">
+      </div>
     </div>
-    <div class="main-content" id="main-content">
-        <div class="gallery" id="gallery">
-            <div class="gallery-item">
-                <img src="gambar1.jpg" alt="Gambar 1">
-                <p>Deskripsi Gambar 1</p>
-            </div>
-            <div class="gallery-item">
-                <img src="gambar2.jpg" alt="Gambar 2">
-                <p>Deskripsi Gambar 2</p>
-            </div>
-            <div class="gallery-item">
-                <img src="gambar3.jpg" alt="Gambar 3">
-                <p>Deskripsi Gambar 3</p>
-            </div>
-            <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
-        </div>
-    </div>
+  </div>
+</ul>
 
-    <div class="background-animation">
-        <div class="flower" style="top: 80%; left: 10%; animation-duration: 12s;"></div>
-        <div class="flower" style="top: 90%; left: 50%; animation-duration: 8s;"></div>
-        <div class="flower" style="top: 85%; left: 30%; animation-duration: 10s;"></div>
-        <div class="flower" style="top: 95%; left: 70%; animation-duration: 11s;"></div>
-        <div class="flower" style="top: 80%; left: 90%; animation-duration: 9s;"></div>
-    </div>
+<script>
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("modalImg");
 
-    <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById("sidebar");
-            var mainContent = document.getElementById("main-content");
-            sidebar.classList.toggle("active");
-            mainContent.classList.toggle("active");
-        }
+  // Fungsi untuk membuka modal dan menampilkan gambar
+  function openModal(imgPath) {
+    modal.style.display = "flex";
+    modalImg.src = imgPath;
+  }
 
-        function hideSidebar() {
-            var sidebar = document.getElementById("sidebar");
-            var mainContent = document.getElementById("main-content");
-            sidebar.classList.remove("active");
-            mainContent.classList.remove("active");
-        }
+  // Fungsi untuk menutup modal
+  function closeModal() {
+    modal.style.display = "none";
+  }
 
-        // Close the sidebar when clicking outside of it
-        document.addEventListener('click', function(event) {
-            var sidebar = document.getElementById("sidebar");
-            var mainContent = document.getElementById("main-content");
-            var menuToggle = document.querySelector(".menu-toggle");
-            if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
-                sidebar.classList.remove("active");
-                mainContent.classList.remove("active");
-            }
-        });
-    </script>
+  // Fungsi untuk menampilkan gambar berdasarkan nomor slide
+  function currentSlide(n) {
+    var galleryBig = document.getElementsByClassName("gallery-big")[0];
+    var slides = galleryBig.getElementsByTagName("img");
+    modalImg.src = slides[n-1].src;
+  }
+</script>
+
 </body>
 </html>
