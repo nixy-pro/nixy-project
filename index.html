@@ -59,18 +59,17 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: -200px;
             height: 100%;
             width: 200px;
             background-color: rgba(68, 68, 68, 0.8);
             padding-top: 60px; /* Adjusted for header */
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             overflow-x: hidden;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
+            transition: left 0.3s ease;
         }
         .sidebar.active {
-            transform: translateX(0);
+            left: 0;
         }
         .sidebar a {
             display: block;
@@ -89,7 +88,7 @@
             transition: margin-left 0.3s ease;
         }
         .main-content.active {
-            margin-left: 220px; /* Adjusted for sidebar */
+            margin-left: 200px; /* Adjusted for sidebar width */
         }
         .gallery {
             display: flex;
@@ -135,12 +134,13 @@
             .sidebar {
                 width: 60%;
                 max-width: 250px;
+                left: -60%; /* Adjusted for sidebar width */
             }
             .sidebar a {
                 padding: 12px;
             }
             .sidebar.active {
-                transform: translateX(-100%);
+                left: 0;
             }
             .main-content {
                 margin-left: 0;
@@ -154,8 +154,8 @@
 <body>
     <header>
         <div class="brand">
-            <img src="logo.png" alt="Logo">
-            <h1>Toko Bunga</h1>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOQcFb7rN7waIN8GaZqxZAQ1wBB4kckwGyE8eQDHqToj_fo4Oy4CtKEEbmhkfwYANi1BgC034Rt4gINZXY9nx_KZhvenqx4n38ENw7evdzQhHNhSzUJ2DGAtaSPLWBAHrGKUpaCsP6Y93ss2TJZF44i6jMZYkW4nvR31A_mT1mdHNQflY7xYwu-jByH1qr/s16000/Alyssa_20240622_112939_0000.png" alt="Logo">
+            <h1>Alyssa Florist</h1>
         </div>
         <button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
     </header>
@@ -185,13 +185,17 @@
 
     <script>
         function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("active");
-            document.getElementById("main-content").classList.toggle("active");
+            var sidebar = document.getElementById("sidebar");
+            var mainContent = document.getElementById("main-content");
+            sidebar.classList.toggle("active");
+            mainContent.classList.toggle("active");
         }
 
         function hideSidebar() {
-            document.getElementById("sidebar").classList.remove("active");
-            document.getElementById("main-content").classList.remove("active");
+            var sidebar = document.getElementById("sidebar");
+            var mainContent = document.getElementById("main-content");
+            sidebar.classList.remove("active");
+            mainContent.classList.remove("active");
         }
 
         // Close the sidebar when clicking outside of it
