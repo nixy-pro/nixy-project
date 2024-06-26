@@ -19,7 +19,6 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            overflow: hidden; /* Prevents scrolling caused by animation */
         }
         header {
             display: flex;
@@ -53,23 +52,19 @@
         .brand h1 {
             font-weight: bold;
             margin: 0;
-            font-size: 1.5rem;
-            margin-left: 10px; /* Jarak antara logo dan teks */
         }
         .menu-toggle {
             font-size: 24px; /* Ukuran ikon */
             cursor: pointer;
-            background-color: transparent;
-            color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #444;
             border: none;
             padding: 10px;
             margin: 10px;
+            border-radius: 50%; /* Membuat tombol menjadi lingkaran */
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .menu-toggle .fas {
-            font-size: 1.5rem; /* Ukuran ikon hamburger */
         }
         .sidebar {
             position: fixed;
@@ -145,7 +140,7 @@
         }
         @media (max-width: 600px) {
             .menu-toggle {
-                display: flex; /* Memastikan tombol hamburger muncul */
+                display: inline-block;
             }
             header {
                 padding: 10px 5%;
@@ -154,7 +149,7 @@
                 height: 40px;
             }
             .brand h1 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
             .sidebar {
                 width: 60%;
@@ -174,34 +169,6 @@
                 margin-left: 0;
             }
         }
-        .background-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Ensure it stays behind content */
-        }
-        .flower {
-            position: absolute;
-            width: 50px; /* Size of the flower */
-            height: 50px;
-            background-image: url('https://img.freepik.com/free-psd/3d-pink-flower-isolated-transparent-background_191095-16624.jpg'); /* URL gambar bunga */
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: float 10s linear infinite;
-        }
-        @keyframes float {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
@@ -210,7 +177,7 @@
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOQcFb7rN7waIN8GaZqxZAQ1wBB4kckwGyE8eQDHqToj_fo4Oy4CtKEEbmhkfwYANi1BgC034Rt4gINZXY9nx_KZhvenqx4n38ENw7evdzQhHNhSzUJ2DGAtaSPLWBAHrGKUpaCsP6Y93ss2TJZF44i6jMZYkW4nvR31A_mT1mdHNQflY7xYwu-jByH1qr/s16000/Alyssa_20240622_112939_0000.png" alt="Logo" height="50">
             <h1>Toko Bunga</h1>
         </div>
-        <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+        <button class="menu-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
     </header>
     <div class="sidebar" id="sidebar">
         <div class="logo">
@@ -237,14 +204,6 @@
             </div>
             <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
         </div>
-    </div>
-
-    <div class="background-animation">
-        <div class="flower" style="top: 80%; left: 10%; animation-duration: 12s;"></div>
-        <div class="flower" style="top: 90%; left: 50%; animation-duration: 8s;"></div>
-        <div class="flower" style="top: 85%; left: 30%; animation-duration: 10s;"></div>
-        <div class="flower" style="top: 95%; left: 70%; animation-duration: 11s;"></div>
-        <div class="flower" style="top: 80%; left: 90%; animation-duration: 9s;"></div>
     </div>
 
     <script>
