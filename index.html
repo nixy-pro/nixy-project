@@ -18,7 +18,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
+            padding: 10px 2%;
             background-color: #ff6f61;
             color: #fff;
             animation: slideDown 1s ease-out;
@@ -35,6 +35,7 @@
         }
         header img {
             height: 50px;
+            max-width: 100%;
         }
         .menu-toggle {
             font-size: 18px;
@@ -114,11 +115,21 @@
             .menu-toggle {
                 display: inline-block;
             }
+            header {
+                padding: 10px 5%;
+            }
+            header img {
+                height: 40px;
+            }
             .sidebar {
-                transform: translateX(-100%);
+                width: 60%;
+                max-width: 250px;
+            }
+            .sidebar a {
+                padding: 12px;
             }
             .sidebar.active {
-                transform: translateX(0);
+                transform: translateX(-100%);
             }
             .main-content {
                 margin-left: 0;
