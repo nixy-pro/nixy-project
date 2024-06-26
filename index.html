@@ -34,6 +34,9 @@
             animation: slideDown 1s ease-out;
             position: relative; /* Tambahkan */
             z-index: 2; /* Tambahkan */
+            background-image: url('https://example.com/welcome-banner.jpg'); /* URL gambar banner selamat datang */
+            background-size: cover;
+            background-position: center;
         }
         @keyframes slideDown {
             from {
@@ -103,8 +106,6 @@
         .gallery-item {
             width: calc(50% - 20px); /* Lebar setengah dari container dengan margin 10px */
             margin-bottom: 20px; /* Jarak antar gambar */
-            border: 2px solid #ccc;
-            border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #fff;
@@ -117,11 +118,6 @@
         }
         .gallery-item:hover {
             transform: scale(1.05);
-        }
-        .gallery-item p {
-            margin: 0;
-            padding: 10px;
-            background-color: #eee;
         }
         .nav-button {
             background-color: #ff6f61;
@@ -174,6 +170,9 @@
             .gallery-item {
                 width: calc(100% - 20px); /* Satu kolom pada layar kecil */
             }
+            .gallery-item img {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -195,20 +194,11 @@
         <button class="nav-button" onclick="hideSidebar()">Contact</button>
     </div>
     <div class="main-content" id="main-content">
+        <!-- Konten utama di sini -->
         <div class="gallery">
             <div class="gallery-item">
-                <img src="abc.png" alt="Gambar 1">
-                <p>Deskripsi Gambar 1</p>
+                <img src="abc.png" alt="Gambar Galeri 1">
             </div>
-            <div class="gallery-item">
-                <img src="abc.png" alt="Gambar 2">
-                <p>Deskripsi Gambar 2</p>
-            </div>
-            <div class="gallery-item">
-                <img src="abc.png" alt="Gambar 3">
-                <p>Deskripsi Gambar 3</p>
-            </div>
-            <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
         </div>
     </div>
 
