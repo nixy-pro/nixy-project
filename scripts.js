@@ -22,3 +22,26 @@ document.addEventListener('click', function(event) {
         mainContent.classList.remove("active");
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const slider = document.querySelector('.slider');
+
+    let slideIndex = 0;
+
+    nextBtn.addEventListener('click', function() {
+        slideIndex++;
+        if (slideIndex > 4) slideIndex = 0;
+        updateSlider();
+    });
+
+    prevBtn.addEventListener('click', function() {
+        slideIndex--;
+        if (slideIndex < 0) slideIndex = 4;
+        updateSlider();
+    });
+
+    function updateSlider() {
+        slider.style.transform = `translateX(${-slideIndex * 100}%)`;
+    }
+});
