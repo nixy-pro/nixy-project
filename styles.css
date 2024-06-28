@@ -1,257 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset CSS untuk memastikan tampilan konsisten */
+* {
     margin: 0;
     padding: 0;
-    background-color: #E6E6FA;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: Arial, sans-serif;
+}
+
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 2%;
-    background-color: #FF69B4;
-    color: #fff;
-    animation: slideDown 1s ease-out;
-}
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-header img {
-    height: 50px;
-    max-width: 100%;
-}
-.brand {
-    display: flex;
     align-items: center;
-    color: #fff;
-    text-decoration: none;
-}
-.brand h1 {
-    font-weight: bold;
-    margin: 0;
-}
-.menu-toggle {
-    font-size: 24px;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #444;
-    border: none;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -200px;
-    height: 100%;
-    width: 200px;
-    background-color: rgba(68, 68, 68, 0.8);
-    padding-top: 60px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    overflow-x: hidden;
-    transition: left 0.3s ease;
-}
-.sidebar.active {
-    left: 0;
-}
-.sidebar .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-.sidebar .logo i {
-    font-size: 32px;
-    color: #fff;
-}
-.sidebar a {
-    display: block;
-    color: white;
-    padding: 16px;
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    margin: 8px;
-}
-.sidebar a:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-.main-content {
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-}
-.main-content.active {
-    margin-left: 200px;
-}
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-}
-.gallery-item {
-    margin: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.2s;
-}
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    loading: lazy;
-}
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-.gallery-item p {
-    margin: 0;
-    padding: 10px;
-    background-color: #eee;
-}
-@media (max-width: 600px) {
-    .menu-toggle {
-        display: inline-block;
-    }
-    header {
-        padding: 10px 5%;
-    }
-    header img {
-        height: 40px;
-    }
-    .brand h1 {
-        font-size: 1.5rem;
-    }
-    .sidebar {
-        width: 60%;
-        max-width: 250px;
-        left: -60%;
-    }
-    .sidebar a {
-        padding: 12px;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-    .main-content {
-        margin-left: 0;
-    }
-    .main-content.active {
-        margin-left: 0;
-    }
-}
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.main-image {
-    width: 100%;
-    max-width: 400px; /* Atur sesuai kebutuhan */
-    text-align: center;
-}
-
-.main-image img {
-    max-width: 100%;
-    height: auto;
-}
-
-.sub-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.sub-image {
-    width: 100%;
-    max-width: 50px; /* Atur sesuai kebutuhan */
-    text-align: center;
-}
-
-.sub-image img {
-    max-width: 100%;
-    height: auto;
-}
-body {
-    font-family: Arial, sans-serif;
+    padding: 10px 20px;
     background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    border-bottom: 2px solid #ccc;
 }
 
-.gallery {
-    max-width: 600px;
-    margin: 20px auto;
-    position: relative;
-    overflow: hidden;
+.logo img {
+    height: 50px; /* Atur sesuai ukuran logo */
 }
 
-.slider {
+.title {
+    font-size: 1.5rem;
+}
+
+.menu {
+    list-style-type: none;
     display: flex;
-    transition: transform 0.5s ease;
 }
 
-.slide {
-    min-width: 100%;
-    overflow: hidden;
-    position: relative;
+.menu li {
+    margin-right: 20px;
 }
 
-.slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.price {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+.menu li a {
+    text-decoration: none;
+    color: #333;
     padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 18px;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.menu li a:hover {
+    background-color: #ddd;
 }
 
-.prev {
-    left: 10px;
+.dropdown:hover .submenu {
+    display: block;
 }
 
-.next {
-    right: 10px;
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px;
 }
+
+.submenu li {
+    margin: 5px 0;
+}
+
+.submenu li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
