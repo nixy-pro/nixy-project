@@ -8,181 +8,24 @@
     <meta name="keywords" content="toko bunga, koleksi bunga, galeri bunga, bunga terbaik, deskripsi bunga">
     <meta property="og:title" content="Toko Bunga">
     <meta property="og:description" content="Toko bunga yang menawarkan koleksi bunga terbaik dengan deskripsi singkat.">
-    <meta property="og:image" content="https://example.com/thumbnail.jpg"> <!-- URL thumbnail gambar -->
+    <meta property="og:image" content="https://example.com/thumbnail.jpg">
     <meta property="og:url" content="https://example.com">
     <meta property="og:type" content="website">
-    <link rel="icon" href="abc.png" type="image/x-icon">
+    <link rel="icon" href="flower-icon.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-tFj5/vGCA7kWDZFfpusd+jSc5F1F4twE4lGn+5c7miYU1BN1ZzQV3H2U7JYoOM60ZJ9LZPBlIbnv2dI7prpE4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 2%;
-            background-color: #ff6f61;
-            color: #fff;
-            animation: slideDown 1s ease-out;
-        }
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        header img {
-            height: 50px;
-            max-width: 100%;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
-        }
-        .brand h1 {
-            font-weight: bold;
-            margin: 0;
-        }
-        .menu-toggle {
-            font-size: 24px; /* Ukuran ikon */
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #444;
-            border: none;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 50%; /* Membuat tombol menjadi lingkaran */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -200px;
-            height: 100%;
-            width: 200px;
-            background-color: rgba(68, 68, 68, 0.8);
-            padding-top: 60px; /* Adjusted for header */
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            overflow-x: hidden;
-            transition: left 0.3s ease;
-        }
-        .sidebar.active {
-            left: 0;
-        }
-        .sidebar .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .sidebar .logo i {
-            font-size: 32px; /* Ukuran ikon */
-            color: #fff;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 16px;
-            text-decoration: none;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            margin: 8px;
-        }
-        .sidebar a:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-        .main-content {
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-            margin-top: 70px; /* Sesuaikan margin-top agar konten berada pas di bawah header */
-        }
-        .main-content.active {
-            margin-left: 200px; /* Adjusted for sidebar width */
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px;
-        }
-        .gallery-item {
-            margin: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            transition: transform 0.2s;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .gallery-item p {
-            margin: 0;
-            padding: 10px;
-            background-color: #eee;
-        }
-        @media (max-width: 600px) {
-            .menu-toggle {
-                display: inline-block;
-            }
-            header {
-                padding: 10px 5%;
-            }
-            header img {
-                height: 40px;
-            }
-            .brand h1 {
-                font-size: 1.5rem;
-            }
-            .sidebar {
-                width: 60%;
-                max-width: 250px;
-                left: -60%; /* Adjusted for sidebar width */
-            }
-            .sidebar a {
-                padding: 12px;
-            }
-            .sidebar.active {
-                left: 0;
-            }
-            .main-content {
-                margin-left: 0;
-            }
-            .main-content.active {
-                margin-left: 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="brand">
             <img src="abc.png" alt="Logo" height="50">
-            <h1>Toko Bunga</h1>
+            <h1>Alyssa Florist</h1>
         </div>
         <button class="menu-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
     </header>
     <div class="sidebar" id="sidebar">
         <div class="logo">
-            <i class="fas fa-leaf"></i> <!-- Ganti dengan ikon Font Awesome yang diinginkan -->
+            <i class="fas fa-leaf"></i>
         </div>
         <a href="#home" onclick="hideSidebar()">Home</a>
         <a href="#gallery" onclick="hideSidebar()">Gallery</a>
@@ -191,39 +34,41 @@
     </div>
     <div class="main-content" id="main-content">
         <div class="gallery" id="gallery">
-            <!-- Konten galeri tanpa gambar -->
             <div class="gallery-item">
-                <p>Deskripsi konten</p>
+                <img src="abc.png" alt="Gambar 1">
             </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
         </div>
     </div>
+<div class="gallery">
+    <div class="main-image">
+        <a href="#">
+            <img src="https://cdn-abnfo.nitrocdn.com/CZAfznEOqmodrydZNIuiPPuZoVVZOMdt/assets/images/optimized/rev-3f49b20/irandra.com/wp-content/uploads/2024/02/VHB-10-400x400.jpg" alt="Main Image">
+        </a>
+    </div>
+    <div class="sub-images">
+        <div class="sub-image">
+            <a href="#">
+                <img src="https://cdn-abnfo.nitrocdn.com/CZAfznEOqmodrydZNIuiPPuZoVVZOMdt/assets/images/optimized/rev-3f49b20/irandra.com/wp-content/uploads/2024/02/VHB-10-400x400.jpg" alt="Sub Image 1">
+            </a>
+        </div>
+        <div class="sub-image">
+            <a href="#">
+                <img src="https://cdn-abnfo.nitrocdn.com/CZAfznEOqmodrydZNIuiPPuZoVVZOMdt/assets/images/optimized/rev-3f49b20/irandra.com/wp-content/uploads/2024/02/VHB-10-400x400.jpg" alt="Sub Image 2">
+            </a>
+        </div>
+        <div class="sub-image">
+            <a href="#">
+                <img src="https://cdn-abnfo.nitrocdn.com/CZAfznEOqmodrydZNIuiPPuZoVVZOMdt/assets/images/optimized/rev-3f49b20/irandra.com/wp-content/uploads/2024/02/VHB-10-400x400.jpg" alt="Sub Image 3">
+            </a>
+        </div>
+        <div class="sub-image">
+            <a href="#">
+                <img src="https://cdn-abnfo.nitrocdn.com/CZAfznEOqmodrydZNIuiPPuZoVVZOMdt/assets/images/optimized/rev-3f49b20/irandra.com/wp-content/uploads/2024/02/VHB-10-400x400.jpg" alt="Sub Image 4">
+            </a>
+        </div>
+    </div>
+</div>
 
-    <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById("sidebar");
-            var mainContent = document.getElementById("main-content");
-            sidebar.classList.toggle("active");
-            mainContent.classList.toggle("active");
-        }
-
-        function hideSidebar() {
-            var sidebar = document.getElementById("sidebar");
-            var mainContent = document.getElementById("main-content");
-            sidebar.classList.remove("active");
-            mainContent.classList.remove("active");
-        }
-
-        // Close the sidebar when clicking outside of it
-        document.addEventListener('click', function(event) {
-            var sidebar = document.getElementById("sidebar");
-            var mainContent = document.getElementById("main-content");
-            var menuToggle = document.querySelector(".menu-toggle");
-            if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
-                sidebar.classList.remove("active");
-                mainContent.classList.remove("active");
-            }
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
