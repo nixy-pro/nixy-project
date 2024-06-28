@@ -29,6 +29,7 @@ header {
 .menu {
     list-style-type: none;
     display: flex;
+    align-items: center; /* Penyesuaian agar menu tetap berada di tengah vertikal */
 }
 
 .menu li {
@@ -68,3 +69,38 @@ header {
     display: block;
 }
 
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .menu {
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .menu li {
+        margin: 0 10px;
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+        margin-top: 10px;
+    }
+
+    .dropdown:hover .submenu {
+        display: none;
+    }
+
+    .dropdown.active .submenu {
+        display: block;
+    }
+
+    .dropdown.active > a {
+        background-color: #ddd;
+    }
+}
